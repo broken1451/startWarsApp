@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" [routerLink]="['/homeStar/home']" routerLinkActive="active" >Start Wars</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link" aria-current="page" [routerLink]="['/homeStar/home']" routerLinkActive="active">Home</a></li>
+                <!-- <li class="nav-item"><a class="nav-link"  [routerLink]="['/homeStar/details/4']" routerLinkActive="active">About</a></li> -->
+                <li class="nav-item"><a class="nav-link" routerLinkActive="active">About</a></li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control" placeholder="Search character" #txtSearch [(ngModel)]="termino"  name="termino" 
+                       (keyup.enter)='search()' type="text">
+                <button class="btn btn-outline-dark" (click)='search()' type="button">
+                    Search
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
