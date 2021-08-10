@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { PlanetsComponent } from './planets/planets.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SearchComponent } from './search/search.component';
     HeaderComponent,
     FooterComponent,
     DetailsComponent,
-    SearchComponent
+    SearchComponent,
+    PlanetsComponent
   ],
   imports: [
     CommonModule,

@@ -12,7 +12,7 @@ The following JS gets the audio element and sets the start volume for the main S
 window.onload = function() {
     var backgroundAudio=document.getElementById("bgAudio");
     
-    backgroundAudio.volume=0.1;
+    backgroundAudio.volume=0.0;
     
     // second seek to the specific time you're looking for
     // backgroundAudio.currentTime = 0;
