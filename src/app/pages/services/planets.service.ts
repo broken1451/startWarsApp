@@ -14,12 +14,12 @@ export class PlanetsService {
 
 
 
-  public getAllCharacter(page?: string): any{
+  public getAllPlanets(page?: string): any{
     try {
-      const params = new HttpParams().set('page', '4');
-      // return this.httClient.get<any>(`${environment.baseUrl}/people`, {params}).pipe(
+      const params = new HttpParams().set('page', String(page));
       return this.httClient.get<PlanetsResponse>(`${environment.baseUrl}/planets`, {params}).pipe(
         map(planets => {
+          console.log(planets);
           // return planets
           return this.planetSmall(planets);
         })
@@ -38,7 +38,11 @@ export class PlanetsService {
       return {
        id,
        name: planets.name,
-       img: picPlanets
+       img: picPlanets,
+       climate: planets.climate,
+       orbital_period: planets.orbital_period,
+       gravity: planets.gravity,
+       terrain: planets.terrain,
       };
     });
     return planets;
