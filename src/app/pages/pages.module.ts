@@ -11,7 +11,6 @@ import { DetailsComponent } from './details/details.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { PlanetsComponent } from './planets/planets.component';
-import { ImgPipe } from './pipes/img.pipe';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { ImgPipe } from './pipes/img.pipe';
     DetailsComponent,
     SearchComponent,
     PlanetsComponent,
-    ImgPipe
   ],
   imports: [
     CommonModule,
