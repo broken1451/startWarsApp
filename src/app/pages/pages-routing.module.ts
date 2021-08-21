@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
 import { PlanetsComponent } from './planets/planets.component';
+import { SpeciesComponent } from './species/species.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
       {
         path: 'planets',
         component: PlanetsComponent,
+      },
+      {
+        path: 'species',
+        component: SpeciesComponent,
+      },
+      {
+        path: 'vehicles',
+        component: VehiclesComponent,
       },
       {
         path: 'details/:id',

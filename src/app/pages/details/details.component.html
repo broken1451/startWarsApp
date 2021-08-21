@@ -1,21 +1,75 @@
+
+
 <section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
+    <div *ngIf="loading" class="text-center">
+        <div class="spinner-border text-dark" role="status">
+        </div>
+    </div>
+    <div *ngIf="!loading"  class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div class="col mb-5" style="width: 40%;">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" [src]="imgCharacter" alt="..." /> 
+                    <img class="card-img-top" [src]="imgCharacter" [alt]="imgCharacter" /> 
                     <!-- Product details-->
                     <div class="card-body p-4">
-                        <div class="text-center">
-                            <h5 class="fw-bolder">{{character?.name}}</h5> 
-                            <!-- Product price-->
-                            Birth year: {{character?.birth_year}}
-                            <br>
-                            Gender: {{character?.gender}}
-                            <br>
-                            Birth Year: {{character?.birth_year}}
-                        </div>
+                        <ng-container *ngIf="character?.birth_year">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{character?.name}}</h5> 
+                                <!-- Product price-->
+                                Birth year: {{character?.birth_year}}
+                                <br>
+                                Gender: {{character?.gender}}
+                                <br>
+                                Birth Year: {{character?.birth_year}}
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngIf="character?.climate">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{character?.name}}</h5> 
+                                <!-- Product price-->
+                                Climate: {{character?.climate}}
+                                <br>
+                                Diameter: {{character?.diameter}}
+                                <br>
+                                Gravity: {{character?.gravity}}
+                                <br>
+                                Population: {{character?.population}}
+                            </div>
+                        </ng-container> 
+
+                        <ng-container  *ngIf="character?.designation">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{character?.name}}</h5> 
+                                <!-- Product price-->
+                                Language: {{character?.language}}
+                                <br>
+                                Designation: {{character?.designation}}
+                                <br>
+                                Average height: {{character?.average_height}}
+                                <br>
+                                Average lifespan: {{character?.average_lifespan}}
+                            </div>
+                        </ng-container>
+                        
+                        <ng-container  *ngIf="character?.consumables">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{character?.name}}</h5> 
+                                <!-- Product price-->
+                                Consumables: {{character?.consumables}}
+                                <br>
+                                Vehicle Class: {{character?.vehicle_class}}
+                                <br>
+                                Passengers: {{character?.passengers}}
+                                <br>
+                                Model: {{character?.model}}
+                                <br>
+                                Length: {{character?.length}}
+                                <br>
+                                Cargo Capacity: {{character?.cargo_capacity}}
+                            </div>
+                        </ng-container>       
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

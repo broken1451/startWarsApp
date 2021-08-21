@@ -10,7 +10,7 @@ import { Planets } from '../models/response.intefaces';
 })
 export class PlanetsComponent implements OnInit {
 
-  public planets: Planets[] = []
+  public planets: Planets[] = [];
   public page = 1;
   public loading = true;
   public showBtn = 'https://starwars-visualguide.com/assets/img/planets/';
@@ -29,8 +29,7 @@ export class PlanetsComponent implements OnInit {
         const url = planet?.img?.split('/');
         const id = url![6].split('.');
         const idImg = id![0];
-      
-        if (idImg == '1' || idImg == '20'|| idImg == '22' || idImg == '23'  || idImg == '24'  || idImg == '25'  || idImg == '26'  || idImg == '27'
+        if (idImg == '1' || idImg == '20'|| idImg == '22' || idImg == '23'  || idImg == '24' || idImg == '25'  || idImg == '26'  || idImg == '27'
         || idImg == '28'  || idImg == '29' || idImg == '30' || idImg == '31' || idImg == '32' || idImg == '33' || idImg == '34' || idImg == '35' || idImg == '36'
         || idImg == '37' || idImg == '38' || idImg == '39' || idImg == '40' || idImg == '41' || idImg == '42' || idImg == '43' || idImg == '44' || idImg == '45'
         || idImg == '46' || idImg == '47' || idImg == '48' || idImg == '49' || idImg == '50' || idImg == '51' || idImg == '52' || idImg == '53' || idImg == '54'
@@ -40,7 +39,7 @@ export class PlanetsComponent implements OnInit {
       })
       this.planets = resp;
       this.loading = false;
-      console.log(this.planets);
+      // console.log(this.planets);
       // this.characters = resp;
       // this.loading = false;
     } catch (error) {
@@ -55,7 +54,7 @@ export class PlanetsComponent implements OnInit {
     console.log(this.page);
     if (this.page >= 7) {
       this.page = 6;
-      this.getAllPlanets(String(this.page));
+      this.loading = false;
       return;
     }
     this.getAllPlanets(String(this.page));
@@ -70,6 +69,13 @@ export class PlanetsComponent implements OnInit {
       return;
     }
     this.getAllPlanets(String(this.page));
+  }
+
+
+  goToDetails(planet: any): void{
+    console.log(planet)
+    localStorage.setItem('planet',JSON.stringify(planet))
+    this.router.navigate(['/homeStar/details/', planet.id ]);
   }
 
 }

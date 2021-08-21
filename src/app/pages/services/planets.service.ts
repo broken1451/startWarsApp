@@ -12,15 +12,11 @@ export class PlanetsService {
 
   constructor(private httClient: HttpClient) { }
 
-
-
   public getAllPlanets(page?: string): any{
     try {
       const params = new HttpParams().set('page', String(page));
       return this.httClient.get<PlanetsResponse>(`${environment.baseUrl}/planets`, {params}).pipe(
         map(planets => {
-          console.log(planets);
-          // return planets
           return this.planetSmall(planets);
         })
       );
@@ -30,6 +26,7 @@ export class PlanetsService {
   }
 
   private planetSmall(res: PlanetsResponse): Planets[] {
+    // tslint:disable-next-line: no-shadowed-variable
     const planets: any[] = res.results.map((planets: any) => {
       const url = planets?.url?.split('/');
       // tslint:disable-next-line: no-non-null-assertion
@@ -48,6 +45,18 @@ export class PlanetsService {
     return planets;
   }
 
+  public getPlanetById(id: string): any{
+    try {
+      return this.httClient.get<any>(`${environment.baseUrl}/planets/${id}`).pipe(
+        map(planet => {
+          console.log({planet})
+          return planet;
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
 }

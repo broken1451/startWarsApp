@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { StarWarsService } from '../services/star-wars.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +16,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
   async search(){
     const valor = this.txtSearch.nativeElement.value;
     if (valor.trim().length === 0) {

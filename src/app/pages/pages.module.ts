@@ -11,6 +11,8 @@ import { DetailsComponent } from './details/details.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { PlanetsComponent } from './planets/planets.component';
+import { SpeciesComponent } from './species/species.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { PlanetsComponent } from './planets/planets.component';
     DetailsComponent,
     SearchComponent,
     PlanetsComponent,
+    SpeciesComponent,
+    VehiclesComponent,
   ],
   imports: [
     CommonModule,

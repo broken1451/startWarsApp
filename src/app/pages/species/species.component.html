@@ -2,7 +2,7 @@
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
         <div class="text-center">
             <button class="btn btn-outline-dark mt-auto"  (click)="previous(-1)">Previous</button>
-            <button class="btn btn-outline-dark mt-auto" (click)="next(+1)" style="margin-left: 5%;" >Next</button>
+            <button class="btn btn-outline-dark mt-auto"  (click)="next(+1)" style="margin-left: 5%;" >Next</button>
         </div>
     </div>
     
@@ -11,37 +11,36 @@
         </div>
     </div>
 
-    <div *ngIf="!loading"  class="container px-4 px-lg-5 mt-5" style="cursor: pointer;">
+    <div  *ngIf="!loading" class="container px-4 px-lg-5 mt-5" style="cursor: pointer;">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div  class="col mb-5" *ngFor="let planets of planets" (click)="goToDetails(planets)">
+            <div  class="col mb-5" *ngFor="let species of species" (click)="goToDetails(species)">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" [src]="planets?.img" alt="..." /> 
+                    <img class="card-img-top" [src]="species?.img" alt="..." /> 
                     <!-- Product details-->
                     <div class="card-body">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">{{planets.name}}</h5> 
+                            <h5 class="fw-bolder">{{species?.name}}</h5> 
                             <!-- Product price-->
                             <p>
-                                Climate: {{planets.climate}}
+                                Language: {{species?.language}}
                             </p>
                             <p>
-                                Orbital Period: {{planets.orbital_period}}
+                                Designation: {{species?.designation}}
                             </p>
                             <p>
-                                Gravity: {{planets.gravity}}
+                                Average lifespan: {{species?.average_lifespan}}
                             </p>
                             <p>
-                                Terrain: {{planets.terrain}}
+                                Average height: {{species?.average_height}}
                             </p>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                            <!-- <button *ngIf="planets.img.includes(showBtn)" (click)="goToDetails()" class="btn btn-outline-dark mt-auto">View Details</button> -->
-                            <button *ngIf="planets.img.includes(showBtn)" (click)="goToDetails(planets)" class="btn btn-outline-dark mt-auto">View Details</button>
+                            <button (click)="goToDetails(species)"  class="btn btn-outline-dark mt-auto">View Details</button>
                         </div>
                     </div>
                 </div>
