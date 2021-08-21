@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     this.page = this.page + num;
     if (this.page >= 10) {
       this.page = 9;
-      this.getAllCharacter(String(this.page));
+      this.loading = false;
       return;
     }
     this.getAllCharacter(String(this.page));
